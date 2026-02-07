@@ -24,7 +24,7 @@ public class KPerformance {
         for (int a = 0; a < algos.length; a++) {
             SortingAlgorithm algo = algos[a];
             String name = algo.getClass().getSimpleName();
-dd
+
             // prints to console for easy viewing
             fw.write("Sorting algorithm – " + name + "\n");
             System.out.println("Sorting algorithm – " + name);
