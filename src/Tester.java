@@ -41,6 +41,42 @@ public class Tester {
 
         return total / iterations;
     }
+
+    private void makeKSorted(int[] arr, int k) {
+
+        // 1 shell sort pass makes it K sorted
+        for (int i = k; i < arr.length; i++) {
+            for (int j = i; j >= k && arr[j - k] > arr[j]; j -= k) {
+                int temp = arr[j];
+                arr[j] = arr[j - k];
+                arr[j - k] = temp;
+            }
+        }
+    }
+
+    public double singleKTest(int size, int k) {
+        int[] arr = makeRandomArray(size);
+
+        makeKSorted(arr, k);
+
+        long start = System.currentTimeMillis();
+        arr = sort.sorty(arr);
+        long end = System.currentTimeMillis();
+
+        return (end - start);
+    }
+
+    public double Ktest(int iterations, int size, int k) {
+        double total = 0;
+
+        for (int i = 0; i < iterations; i++) {
+            total += singleKTest(size, k);
+        }
+
+        return total / iterations;
+    }
+
+
 }
 
 

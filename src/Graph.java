@@ -19,12 +19,23 @@ public class Graph extends JFrame {
         int[] n = {100, 500, 1000, 2000, 5000, 10000, 20000, 75000, 150000};
 
         // Changed 0.0 to 0.01 to avoid errors in rendering the graph
-        double[] bubble    = {0.05, 0.2, 0.45, 1.5, 8.5, 28.55, 111.0, 2930.95, 15904.7};
-        double[] insertion = {0.01, 0.1, 0.05, 0.2, 0.95, 3.35, 14.4, 202.5, 816.95};
-        double[] selection = {0.05, 0.15, 0.2, 0.55, 3.35, 12.85, 50.2, 700.75, 2782.9};
-        double[] shell     = {0.05, 0.05, 0.05, 0.15, 0.25, 0.7, 1.25, 6.05, 13.35};
-        double[] quick     = {0.01, 0.01, 0.05, 0.05, 0.15, 0.3, 0.7, 2.9, 5.9};
-        double[] merge     = {0.01, 0.01, 0.01, 0.15, 0.45, 0.7, 1.2, 5.0, 10.4};
+
+        // original data
+        //double[] bubble    = {0.05, 0.2, 0.45, 1.5, 8.5, 28.55, 111.0, 2930.95, 15904.7};
+        //double[] insertion = {0.01, 0.1, 0.05, 0.2, 0.95, 3.35, 14.4, 202.5, 816.95};
+        //double[] selection = {0.05, 0.15, 0.2, 0.55, 3.35, 12.85, 50.2, 700.75, 2782.9};
+        //double[] shell     = {0.05, 0.05, 0.05, 0.15, 0.25, 0.7, 1.25, 6.05, 13.35};
+        //double[] quick     = {0.01, 0.01, 0.05, 0.05, 0.15, 0.3, 0.7, 2.9, 5.9};
+        //double[] merge     = {0.01, 0.01, 0.01, 0.15, 0.45, 0.7, 1.2, 5.0, 10.4};
+
+        //k sorted data
+        double[] bubble = {0.05, 0.05, 0.1, 0.2, 0.25, 1.2, 3.0, 19.75, 55.75};
+        double[] insertion = {0.01, 0.1, 0.05, 0.01, 0.1, 0.25, 0.75, 5.1, 13.5};
+        double[] selection = {0.01, 0.15, 0.15, 0.5, 3.3, 12.15, 48.05, 684.3, 2774.8};
+        double[] shell = {0.01, 0.01, 0.1, 0.05, 0.05, 0.25, 0.55, 2.0, 4.15};
+        double[] quick = {0.05, 0.05, 0.01, 0.15, 0.55, 1.95, 6.95, 92.6, 363.2};
+        double[] merge = {0.01, 0.05, 0.01, 0.2, 0.25, 0.45, 0.95, 3.8, 7.2};
+
 
         // Adds data to Collection
         data.addSeries(make("BubbleSort", n, bubble));
@@ -36,7 +47,8 @@ public class Graph extends JFrame {
 
         // Creates Chart Base
         JFreeChart chart = ChartFactory.createXYLineChart(
-                "Sorting Time For Different Algorithms",
+                //"Sorting Time For Different Algorithms",
+                "Sorting Time for K Sorted Arrays",
                 "N - Size of Array",
                 "Avg Time (ms)",
                 data,
